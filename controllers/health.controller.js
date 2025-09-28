@@ -11,3 +11,15 @@ exports.healthCheck = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.new = async (req, res) => {
+  try {
+    const testDoc = await Test.create({ name: "PingPong" });
+    res.status(200).json({
+      status: "ths is newwwwwwwwwwwwwwwwwwww ",
+      dbTest: testDoc,
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
